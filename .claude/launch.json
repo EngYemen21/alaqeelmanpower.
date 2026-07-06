@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "hamad-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "C:/Users/a/Desktop/hamad"],
+      "autoPort": true
+    }
+  ]
+}

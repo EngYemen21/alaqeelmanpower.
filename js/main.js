@@ -4,7 +4,7 @@
 
   // ===== بيانات التواصل (مصدر واحد للحقيقة) =====
   // الرقم الموحد كما في الموقع الرسمي alaqeelmanpower.com
-  var PHONE = '920015350';
+  var PHONE = '966920015350';
   var WA_LINK = 'https://api.whatsapp.com/send?phone=' + PHONE;
 
   function waLinkWithText(text) {

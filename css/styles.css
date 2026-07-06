@@ -3,27 +3,35 @@
    =================================================================== */
 
 :root {
-  --gold: #B08A3E;
-  --gold-dark: #9A7833;
-  --gold-light: #C2A14D;
-  --gold-pale: #FBF6E9;
-  --gold-border: #D8C692;
-  --cream: #FAF7F1;
-  --card: #FFFDF8;
-  --dark: #34373B;
-  --text: #3B3E42;
-  --text-2: #4A4D51;
-  --muted: #6B6E72;
-  --muted-2: #97917F;
-  --line: #EDE5D3;
-  --line-2: #E8E0CE;
-  --line-3: #EFE8D8;
-  --line-dash: #E3D9C2;
-  --dark-text: #B9BCBF;
-  --dark-cream: #EFE9DC;
+  --gold: #A67C37;
+  --gold-dark: #8D6A2F;
+  --gold-light: #C4A355;
+  --gold-pale: #FBF6EA;
+  --gold-border: #E2D5AB;
+  --cream: #FAFAF7;
+  --card: #FFFFFF;
+  --dark: #1E2328;
+  --text: #2D3136;
+  --text-2: #454950;
+  --muted: #6D7278;
+  --muted-2: #929599;
+  --line: #ECEAE4;
+  --line-2: #E5E2DB;
+  --line-3: #F0EDE7;
+  --line-dash: #DDD8CC;
+  --dark-text: #9EA2A7;
+  --dark-cream: #E8E4DA;
   --wa: #25D366;
   --font-head: 'Alexandria', 'IBM Plex Sans Arabic', sans-serif;
   --font-body: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+  /* Shadow system — layered for realism */
+  --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.03);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-gold: 0 4px 20px rgba(166,124,55,0.18);
+  --shadow-gold-lg: 0 8px 32px rgba(166,124,55,0.25);
 }
 
 * { box-sizing: border-box; }
@@ -35,9 +43,14 @@ body {
   font-family: var(--font-body);
   min-height: 100vh;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 img { max-width: 100%; }
 input, select, textarea, button { font-family: var(--font-body); }
+::selection { background: rgba(166,124,55,0.15); color: var(--dark); }
+a { transition: color 0.2s ease; }
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
@@ -57,12 +70,13 @@ input, select, textarea, button { font-family: var(--font-body); }
   background: var(--dark);
   color: var(--dark-cream);
   font-size: 13px;
-  padding: 8px 6%;
+  padding: 7px 6%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
+  letter-spacing: 0.01em;
 }
 .topbar-badges { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .topbar-badge { display: flex; align-items: center; gap: 6px; }
@@ -86,26 +100,25 @@ input, select, textarea, button { font-family: var(--font-body); }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(250, 247, 241, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line-2);
-  padding: 14px 5%;
+  background: rgba(250, 250, 247, 0.88);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 12px 5%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .site-header::after {
   content: '';
   position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
+  bottom: 0;
+  left: 8%;
+  right: 8%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-light) 50%, transparent);
-  opacity: 0.7;
+  background: linear-gradient(90deg, transparent, rgba(166,124,55,0.2) 30%, rgba(166,124,55,0.2) 70%, transparent);
 }
 .brand { text-decoration: none; display: flex; align-items: center; gap: 12px; }
 .brand-logo { height: 48px; width: auto; display: block; }
@@ -122,27 +135,29 @@ input, select, textarea, button { font-family: var(--font-body); }
   color: var(--gold);
   text-transform: uppercase;
 }
-.site-nav { display: flex; gap: 18px; font-size: 14px; font-weight: 500; flex-wrap: wrap; align-items: center; }
-.site-nav a { color: var(--text); text-decoration: none; }
-.site-nav a:hover { color: var(--gold); }
+.site-nav { display: flex; gap: 20px; font-size: 13.5px; font-weight: 500; flex-wrap: wrap; align-items: center; }
+.site-nav a { color: var(--muted); text-decoration: none; transition: color 0.2s ease; letter-spacing: 0.01em; }
+.site-nav a:hover { color: var(--text); }
 .site-nav a.active {
   color: var(--gold);
-  font-weight: 700;
-  border-bottom: 2px solid var(--gold);
-  padding-bottom: 2px;
+  font-weight: 600;
+  border-bottom: none;
+  position: relative;
 }
 .header-cta {
   background: var(--gold);
-  color: var(--card);
+  color: #fff;
   text-decoration: none;
-  padding: 11px 26px;
-  border-radius: 999px;
+  padding: 10px 24px;
+  border-radius: 10px;
   font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 4px 14px rgba(176, 138, 62, 0.35);
+  font-size: 13.5px;
+  box-shadow: var(--shadow-gold);
   white-space: nowrap;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  letter-spacing: 0.01em;
 }
-.header-cta:hover { background: var(--gold-dark); }
+.header-cta:hover { background: var(--gold-dark); transform: translateY(-1px); box-shadow: var(--shadow-gold-lg); }
 
 /* قائمة الجوال */
 .nav-toggle {
@@ -161,50 +176,52 @@ input, select, textarea, button { font-family: var(--font-body); }
 .btn-gold {
   display: inline-block;
   background: var(--gold);
-  color: var(--card);
+  color: #fff;
   text-decoration: none;
-  padding: 16px 36px;
-  border-radius: 999px;
+  padding: 14px 32px;
+  border-radius: 12px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(176, 138, 62, 0.35);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: var(--shadow-gold);
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   overflow: hidden;
+  letter-spacing: 0.01em;
 }
 .btn-gold:hover {
   background: var(--gold-dark);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(176, 138, 62, 0.5);
+  box-shadow: var(--shadow-gold-lg);
 }
 .btn-gold:active {
-  transform: translateY(1px);
-  box-shadow: 0 4px 10px rgba(176, 138, 62, 0.35);
+  transform: translateY(0);
+  box-shadow: var(--shadow-xs);
 }
 .btn-outline {
   display: inline-block;
   color: var(--text);
   text-decoration: none;
-  padding: 16px 32px;
-  border-radius: 999px;
+  padding: 14px 28px;
+  border-radius: 12px;
   font-weight: 600;
-  font-size: 16px;
-  border: 1.5px solid #D5CDBB;
+  font-size: 15px;
+  border: 1.5px solid var(--line-2);
   background: transparent;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  letter-spacing: 0.01em;
 }
 .btn-outline:hover {
   border-color: var(--gold);
   color: var(--gold);
   transform: translateY(-2px);
-  background: rgba(176, 138, 62, 0.04);
-  box-shadow: 0 8px 20px rgba(176, 138, 62, 0.1);
+  background: rgba(166, 124, 55, 0.03);
+  box-shadow: var(--shadow-sm);
 }
 .btn-outline:active {
-  transform: translateY(1px);
+  transform: translateY(0);
 }
 
 /* ===== أزرار هيرو ===== */
@@ -276,6 +293,7 @@ input, select, textarea, button { font-family: var(--font-body); }
   z-index: 1;
   background: linear-gradient(180deg, rgba(52, 55, 59, 0.78) 0%, rgba(52, 55, 59, 0.88) 100%);
 }
+.page-hero.no-overlay::before { display: none; }
 .page-hero .kicker,
 .page-hero h1,
 .page-hero p { position: relative; z-index: 2; }
@@ -319,16 +337,17 @@ input, select, textarea, button { font-family: var(--font-body); }
 
 /* ===== البطاقات ===== */
 .card {
-  background: var(--cream);
+  background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 32px 26px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: var(--shadow-xs);
 }
 .card-lift:hover {
-  border-color: var(--gold-light);
-  box-shadow: 0 20px 40px rgba(176, 138, 62, 0.12), 0 0 0 1px rgba(176, 138, 62, 0.15);
-  transform: translateY(-6px);
+  border-color: rgba(166,124,55,0.25);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 .card-light { background: var(--card); }
 .card h3 {
@@ -396,17 +415,18 @@ input, select, textarea, button { font-family: var(--font-body); }
 .country-card {
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 32px 28px;
+  border-radius: 16px;
+  padding: 32px 24px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  gap: 14px;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: var(--shadow-xs);
 }
 .country-card:hover {
-  border-color: var(--gold-light);
-  box-shadow: 0 20px 40px rgba(176, 138, 62, 0.12), 0 0 0 1px rgba(176, 138, 62, 0.15);
-  transform: translateY(-6px);
+  border-color: rgba(166,124,55,0.2);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 .country-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .country-top h3 { font-family: var(--font-head); font-weight: 700; font-size: 22px; margin: 0; color: var(--dark); }
@@ -429,37 +449,39 @@ input, select, textarea, button { font-family: var(--font-body); }
   text-align: center;
   text-decoration: none;
   color: var(--gold);
-  border: 1.5px solid var(--gold-border);
-  border-radius: 999px;
-  padding: 12px 0;
+  border: 1.5px solid var(--line-2);
+  border-radius: 10px;
+  padding: 11px 0;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13.5px;
+  transition: all 0.2s ease;
 }
-.country-cta:hover { background: var(--gold); color: var(--card); }
+.country-cta:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
 .price-note { text-align: center; color: var(--muted-2); font-size: 13px; margin-top: 28px; }
 
 /* ===== النموذج ===== */
 .form-card {
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 24px;
-  padding: 44px 40px;
-  box-shadow: 0 18px 50px rgba(59,62,66,0.08);
+  border-radius: 20px;
+  padding: 40px 36px;
+  box-shadow: var(--shadow-md);
   transition: all 0.3s ease;
 }
 .form-grid { display: grid; gap: 16px; }
 .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
 .form-input {
-  border: 1px solid #E0D8C6;
-  border-radius: 12px;
-  padding: 14px 16px;
-  font-size: 14.5px;
+  border: 1px solid var(--line-2);
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-size: 14px;
   background: var(--cream);
   color: var(--text);
   outline: none;
   width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.form-input:focus { border-color: var(--gold); }
+.form-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(166,124,55,0.08); }
 .form-input.invalid { border-color: #C0392B; }
 textarea.form-input { resize: vertical; }
 .form-error {
@@ -474,7 +496,7 @@ textarea.form-input { resize: vertical; }
 .form-error.show { display: block; }
 
 /* ===== الفوتر ===== */
-.site-footer { background: var(--dark); color: var(--dark-text); padding: 56px 6% 32px; }
+.site-footer { background: var(--dark); color: var(--dark-text); padding: 64px 6% 28px; }
 .footer-grid {
   display: flex;
   justify-content: space-between;
@@ -549,9 +571,9 @@ textarea.form-input { resize: vertical; }
   max-width: 512px;
   aspect-ratio: 4 / 5;
   margin-inline: auto;
-  border-radius: 28px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(59, 62, 66, 0.18);
+  box-shadow: var(--shadow-xl);
 }
 .hero-slider .slide {
   position: absolute;
@@ -724,14 +746,14 @@ textarea.form-input { resize: vertical; }
   position: relative;
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 40px 30px 28px;
-  box-shadow: 0 10px 30px rgba(59, 62, 66, 0.06);
+  border-radius: 16px;
+  padding: 36px 28px 24px;
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s ease, border-color 0.25s ease;
   flex-shrink: 0;
   width: 340px;
 }
@@ -757,9 +779,9 @@ textarea.form-input { resize: vertical; }
   background: linear-gradient(180deg, var(--gold), var(--gold-light));
 }
 .testimonial:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 44px rgba(59, 62, 66, 0.12);
-  border-color: var(--gold-border);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(166,124,55,0.2);
 }
 .testimonial-stars { color: var(--gold-light); font-size: 16px; letter-spacing: 3px; position: relative; }
 .testimonial-text { position: relative; font-size: 15px; line-height: 2; color: var(--text-2); margin: 0; flex: 1; }
@@ -968,10 +990,10 @@ textarea.form-input { resize: vertical; }
 .framed img {
   width: 100%;
   object-fit: cover;
-  border-radius: 24px;
+  border-radius: 18px;
   display: block;
   position: relative;
-  box-shadow: 0 24px 60px rgba(59, 62, 66, 0.14);
+  box-shadow: var(--shadow-lg);
 }
 
 /* ===== خط زمني (خطوات الاستقدام) ===== */
@@ -1027,9 +1049,9 @@ textarea.form-input { resize: vertical; }
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .cv-card:hover {
-  border-color: var(--gold-light);
-  box-shadow: 0 20px 40px rgba(176, 138, 62, 0.12), 0 0 0 1px rgba(176, 138, 62, 0.15);
-  transform: translateY(-6px);
+  border-color: rgba(166,124,55,0.2);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
 }
 .cv-card.hidden { display: none; }
 .cv-head { display: flex; align-items: center; gap: 14px; }
@@ -1178,6 +1200,8 @@ a.contact-card:hover {
   .slider-arrow { width: 34px; height: 34px; font-size: 15px; }
   .topbar { font-size: 12px; }
   .topbar-badges { gap: 10px; }
+  /* إخفاء عناصر معينة في الجوال */
+  .hide-on-mobile { display: none !important; }
   /* أزرار الهيرو على الجوال */
   .hero-cta { gap: 10px; }
   .hero-cta .btn-gold,

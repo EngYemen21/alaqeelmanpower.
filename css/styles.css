@@ -66,12 +66,18 @@ input, select, textarea, button { font-family: var(--font-body); }
 }
 .topbar-badges { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .topbar-badge { display: flex; align-items: center; gap: 6px; }
+@keyframes pulseGold {
+  0% { transform: rotate(45deg) scale(1); opacity: 1; }
+  50% { transform: rotate(45deg) scale(1.35); opacity: 0.85; }
+  100% { transform: rotate(45deg) scale(1); opacity: 1; }
+}
 .diamond {
   width: 6px; height: 6px;
   background: var(--gold-light);
   transform: rotate(45deg);
   display: inline-block;
   flex-shrink: 0;
+  animation: pulseGold 2.5s infinite ease-in-out;
 }
 .topbar-phone { color: var(--gold-light); text-decoration: none; font-weight: 600; direction: ltr; }
 
@@ -89,6 +95,17 @@ input, select, textarea, button { font-family: var(--font-body); }
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  transition: all 0.3s ease;
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-light) 50%, transparent);
+  opacity: 0.7;
 }
 .brand { text-decoration: none; display: flex; align-items: center; gap: 12px; }
 .brand-logo { height: 48px; width: auto; display: block; }
@@ -153,8 +170,19 @@ input, select, textarea, button { font-family: var(--font-body); }
   border: none;
   cursor: pointer;
   box-shadow: 0 8px 24px rgba(176, 138, 62, 0.35);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
 }
-.btn-gold:hover { background: var(--gold-dark); }
+.btn-gold:hover {
+  background: var(--gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(176, 138, 62, 0.5);
+}
+.btn-gold:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(176, 138, 62, 0.35);
+}
 .btn-outline {
   display: inline-block;
   color: var(--text);
@@ -166,14 +194,69 @@ input, select, textarea, button { font-family: var(--font-body); }
   border: 1.5px solid #D5CDBB;
   background: transparent;
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+  background: rgba(176, 138, 62, 0.04);
+  box-shadow: 0 8px 20px rgba(176, 138, 62, 0.1);
+}
+.btn-outline:active {
+  transform: translateY(1px);
+}
+
+/* ===== أزرار هيرو ===== */
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+/* ===== إحصائيات الهيرو ===== */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line-2);
+  flex-wrap: wrap;
+}
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 28px 0 0;
+}
+.hero-stat:first-child { padding-right: 0; }
+.hero-stat-num {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--gold);
+  line-height: 1.1;
+}
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.hero-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--line-2);
+  margin: 0 24px;
+  flex-shrink: 0;
+}
 
 /* ===== هيرو الصفحات الداخلية ===== */
 .page-hero {
   position: relative;
   background: var(--dark);
-  padding: 88px 6%;
+  padding: 140px 6%;
   text-align: center;
   overflow: hidden;
 }
@@ -240,12 +323,12 @@ input, select, textarea, button { font-family: var(--font-body); }
   border: 1px solid var(--line);
   border-radius: 20px;
   padding: 32px 26px;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .card-lift:hover {
   border-color: var(--gold-light);
-  box-shadow: 0 14px 34px rgba(176, 138, 62, 0.14);
-  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(176, 138, 62, 0.12), 0 0 0 1px rgba(176, 138, 62, 0.15);
+  transform: translateY(-6px);
 }
 .card-light { background: var(--card); }
 .card h3 {
@@ -265,14 +348,36 @@ input, select, textarea, button { font-family: var(--font-body); }
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  transition: all 0.3s ease;
 }
 .card-icon-round { border-radius: 50%; margin: 0 auto 14px; width: 46px; height: 46px; }
-.icon-diamond { width: 14px; height: 14px; background: var(--gold); transform: rotate(45deg); }
-.icon-circle { width: 14px; height: 14px; border: 2px solid var(--gold); border-radius: 50%; }
-.icon-square { width: 14px; height: 14px; background: var(--gold); border-radius: 3px; }
-.icon-dots { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; box-shadow: 10px 0 0 var(--gold), -10px 0 0 var(--gold); }
-.icon-diamond-r { width: 14px; height: 14px; background: var(--gold); transform: rotate(45deg); border-radius: 3px; }
-.icon-diamond-o { width: 12px; height: 12px; border: 2px solid var(--gold); transform: rotate(45deg); }
+.card-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--gold);
+  fill: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.card-icon-round svg {
+  width: 20px;
+  height: 20px;
+}
+.card-lift:hover .card-icon {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.card-lift:hover .card-icon svg {
+  stroke: var(--card);
+  transform: scale(1.15) rotate(5deg);
+}
+.card:hover .card-icon-round {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+.card:hover .card-icon-round svg {
+  stroke: var(--card);
+  transform: scale(1.1);
+}
 
 .pill {
   display: inline-flex;
@@ -296,12 +401,12 @@ input, select, textarea, button { font-family: var(--font-body); }
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .country-card:hover {
   border-color: var(--gold-light);
-  box-shadow: 0 14px 34px rgba(176, 138, 62, 0.14);
-  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(176, 138, 62, 0.12), 0 0 0 1px rgba(176, 138, 62, 0.15);
+  transform: translateY(-6px);
 }
 .country-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
 .country-top h3 { font-family: var(--font-head); font-weight: 700; font-size: 22px; margin: 0; color: var(--dark); }
@@ -334,8 +439,16 @@ input, select, textarea, button { font-family: var(--font-body); }
 .price-note { text-align: center; color: var(--muted-2); font-size: 13px; margin-top: 28px; }
 
 /* ===== النموذج ===== */
+.form-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow: 0 18px 50px rgba(59,62,66,0.08);
+  transition: all 0.3s ease;
+}
 .form-grid { display: grid; gap: 16px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
 .form-input {
   border: 1px solid #E0D8C6;
   border-radius: 12px;
@@ -406,6 +519,11 @@ textarea.form-input { resize: vertical; }
 .footer-simple-links a:hover { color: var(--gold-light); }
 
 /* ===== زر واتساب العائم ===== */
+@keyframes floatAnimation {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
 .wa-float {
   position: fixed;
   bottom: 28px;
@@ -419,7 +537,7 @@ textarea.form-input { resize: vertical; }
   align-items: center;
   justify-content: center;
   box-shadow: 0 10px 26px rgba(37, 211, 102, 0.4);
-  animation: pulseRing 2.4s infinite;
+  animation: pulseRing 2.4s infinite, floatAnimation 3s infinite ease-in-out;
   text-decoration: none;
 }
 .wa-float svg { width: 30px; height: 30px; fill: #fff; }
@@ -427,7 +545,10 @@ textarea.form-input { resize: vertical; }
 /* ===== سلايدر الهيرو ===== */
 .hero-slider {
   position: relative;
-  height: 560px;
+  width: 100%;
+  max-width: 512px;
+  aspect-ratio: 4 / 5;
+  margin-inline: auto;
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(59, 62, 66, 0.18);
@@ -444,6 +565,7 @@ textarea.form-input { resize: vertical; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
 }
 .slider-dots {
@@ -532,6 +654,197 @@ textarea.form-input { resize: vertical; }
 .country-top { justify-content: center; }
 .country-price { justify-content: center; }
 .country-features { text-align: right; }
+
+/* ===== شركاؤنا ===== */
+.partners-section {
+  background:
+    radial-gradient(circle at 18% 28%, rgba(176, 138, 62, 0.07), transparent 45%),
+    radial-gradient(circle at 82% 72%, rgba(194, 161, 77, 0.07), transparent 45%),
+    var(--cream);
+  border-top: 1px solid var(--line-3);
+  border-bottom: 1px solid var(--line-3);
+}
+.partners-marquee {
+  margin-top: 48px;
+  overflow: hidden;
+  direction: ltr; /* فرض اتجاه LTR لمنع اختفاء الشريط في الشاشات الصغيرة عند التحريك في RTL */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+.partners-track {
+  display: flex;
+  width: max-content;
+  animation: partners-scroll 26s linear infinite;
+}
+.partners-marquee:hover .partners-track { animation-play-state: paused; }
+.partners-set { display: flex; gap: 14px; padding-inline-start: 14px; }
+@keyframes partners-scroll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .partners-track { animation: none; }
+}
+.partner {
+  flex: 0 0 auto;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.partner:hover { transform: scale(1.06); }
+.partner-logo {
+  height: 78px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* ===== آراء العملاء — سلايدر متحرك ===== */
+.testimonials-section { padding-bottom: 72px; }
+.testimonials-marquee {
+  overflow: hidden;
+  direction: ltr;
+  margin-top: 48px;
+  padding-bottom: 8px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+.testimonials-track {
+  display: flex;
+  width: max-content;
+  animation: testimonials-scroll 36s linear infinite;
+}
+.testimonials-marquee:hover .testimonials-track { animation-play-state: paused; }
+@keyframes testimonials-scroll { to { transform: translateX(-50%); } }
+.testimonials-set { display: flex; gap: 24px; padding-inline-start: 24px; }
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-track { animation: none; }
+}
+.testimonial {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 40px 30px 28px;
+  box-shadow: 0 10px 30px rgba(59, 62, 66, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  flex-shrink: 0;
+  width: 340px;
+}
+.testimonial::before {
+  content: "\201D";
+  position: absolute;
+  top: 6px;
+  inset-inline-start: 26px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 96px;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.16;
+  pointer-events: none;
+}
+.testimonial::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--gold), var(--gold-light));
+}
+.testimonial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 44px rgba(59, 62, 66, 0.12);
+  border-color: var(--gold-border);
+}
+.testimonial-stars { color: var(--gold-light); font-size: 16px; letter-spacing: 3px; position: relative; }
+.testimonial-text { position: relative; font-size: 15px; line-height: 2; color: var(--text-2); margin: 0; flex: 1; }
+.testimonial-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-3);
+}
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gold-pale);
+  border: 1.5px solid var(--gold-border);
+  color: var(--gold);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.testimonial-name { font-weight: 700; font-size: 14.5px; color: var(--dark); }
+.testimonial-city { font-size: 12.5px; color: var(--muted-2); }
+
+/* سلايدر آراء العملاء — يظهر على الجوال فقط (مثل سلايدر الهيدر) */
+.testimonials-slider { display: none; }
+@media (max-width: 640px) {
+  .testimonials-marquee { display: none; }
+  .testimonials-slider {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+    margin-top: 36px;
+    padding: 0 5% 50px;
+  }
+  .testimonials-slider .slide {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+  .testimonials-slider .slide.active { opacity: 1; pointer-events: auto; }
+  .testimonials-slider .testimonial { width: 100%; }
+  .testimonials-slider .slider-arrow {
+    display: flex;
+    top: auto;
+    bottom: 4px;
+    transform: none;
+    background: var(--card);
+    border: 1px solid var(--line);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+  .testimonials-slider .slider-dot { background: rgba(52, 55, 59, 0.18); }
+  .testimonials-slider .slider-dot.active { background: var(--gold); }
+}
+
+/* ===== معرض الصور ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+.gallery-item {
+  display: block;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px rgba(59, 62, 66, 0.10);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: var(--card);
+}
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(59, 62, 66, 0.18);
+}
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
 /* ===== قسم عروض الصيف ===== */
 .offers-section {
@@ -711,12 +1024,12 @@ textarea.form-input { resize: vertical; }
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .cv-card:hover {
   border-color: var(--gold-light);
-  box-shadow: 0 14px 34px rgba(176, 138, 62, 0.14);
-  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(176, 138, 62, 0.12), 0 0 0 1px rgba(176, 138, 62, 0.15);
+  transform: translateY(-6px);
 }
 .cv-card.hidden { display: none; }
 .cv-head { display: flex; align-items: center; gap: 14px; }
@@ -825,7 +1138,9 @@ a.contact-card:hover {
   .split-hero, .split-11, .split-1-11, .split-1-12 { grid-template-columns: 1fr; }
   .split-media-last { order: -1; }
   .framed::before { display: none; }
-  .framed img { height: 320px !important; }
+  .framed > img { height: 320px !important; }
+  /* على الجوال: سلايدر الهيرو يظهر أولاً كصور رأسية للـheader */
+  #top .framed { order: -1; }
 
   /* قائمة الجوال */
   .nav-toggle { display: block; }
@@ -846,13 +1161,13 @@ a.contact-card:hover {
   .header-cta { display: none; }
   .topbar { justify-content: center; }
   .topbar-badges { justify-content: center; }
-  .hero-slider { height: 420px; }
 }
 
 @media (max-width: 640px) {
   .section, .section-md { padding: 56px 5%; }
-  .page-hero { padding: 48px 5%; }
+  .page-hero { padding: 80px 5%; }
   .grid-4, .grid-3, .grid-2, .form-row { grid-template-columns: 1fr; }
+  .form-card { padding: 28px 18px; border-radius: 18px; }
   .section-head { margin-bottom: 36px; }
   .split { gap: 32px; }
   .timeline-item { grid-template-columns: 48px 1fr; gap: 14px; }
@@ -860,8 +1175,30 @@ a.contact-card:hover {
   .footer-grid { flex-direction: column; gap: 28px; }
   .wa-float { width: 52px; height: 52px; bottom: 20px; left: 20px; }
   .wa-float svg { width: 26px; height: 26px; }
-  .hero-slider { height: 340px; }
   .slider-arrow { width: 34px; height: 34px; font-size: 15px; }
   .topbar { font-size: 12px; }
   .topbar-badges { gap: 10px; }
+  /* أزرار الهيرو على الجوال */
+  .hero-cta { gap: 10px; }
+  .hero-cta .btn-gold,
+  .hero-cta .btn-outline {
+    padding: 13px 18px;
+    font-size: 14px;
+    flex: 1;
+    text-align: center;
+  }
+  /* إحصائيات الهيرو على الجوال */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    padding-top: 20px;
+    margin-top: 32px;
+    text-align: center;
+    justify-items: center;
+  }
+  .hero-stat { padding: 0; }
+  .hero-stat-num { font-size: 20px; }
+  .hero-stat-label { font-size: 11px; }
+  .hero-stat-divider { width: 1px; height: 32px; margin: auto 0; }
 }

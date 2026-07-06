@@ -15,9 +15,29 @@
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.querySelector('.site-nav');
   if (toggle && nav) {
-    toggle.addEventListener('click', function () {
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
       var open = nav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    // إغلاق القائمة عند النقر على أي رابط بداخلها
+    var navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // إغلاق القائمة عند النقر في أي مكان خارجها
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+        if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      }
     });
   }
 

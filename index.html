@@ -21,7 +21,7 @@
 <div class="topbar">
   <div class="topbar-badges">
     <span class="topbar-badge"><span class="diamond"></span> مكتب معتمد لدى منصة مساند</span>
-    <span class="topbar-badge"><span class="diamond"></span> ترخيص وزارة الموارد البشرية والتنمية الاجتماعية</span>
+    <!-- <span class="topbar-badge"><span class="diamond"></span> ترخيص وزارة الموارد البشرية والتنمية الاجتماعية</span> -->
   </div>
   <a href="tel:920015350" class="topbar-phone">920015350</a>
 </div>
@@ -34,6 +34,7 @@
   <button class="nav-toggle" aria-label="فتح القائمة" aria-expanded="false">☰</button>
   <nav class="site-nav">
     <a href="index.html" class="active">الرئيسية</a>
+    <a href="services.html">خدماتنا</a>
     <!-- <a href="#offers">العروض</a> -->
     <a href="countries.html">الدول والأسعار</a>
     <a href="steps.html">خطوات الاستقدام</a>
@@ -45,51 +46,45 @@
 </header>
 
 <!-- ===== الهيرو ===== -->
-<section id="top" class="section container split split-hero" style="padding-top: 72px; padding-bottom: 84px">
+<section id="top" class="section container split split-hero" style="padding-top: 52px; padding-bottom: 84px">
   <div class="fade-up">
-    <div class="pill" style="font-size: 13px; padding: 7px 16px; margin-bottom: 24px"><span class="diamond" style="width: 7px; height: 7px; background: var(--gold)"></span> خدمات استقدام العمالة المنزلية</div>
-    <h1 style="font-family: var(--font-head); font-weight: 800; font-size: clamp(29px, 7vw, 58px); line-height: 1.3; margin: 0 0 20px; color: var(--dark)">
+    <!-- <div class="pill" style="font-size: 13px; padding: 7px 16px; margin-bottom: 24px"><span class="diamond" style="width: 7px; height: 7px; background: var(--gold)"></span> خدمات استقدام العمالة المنزلية</div> -->
+    <h1 style="font-family: var(--font-head); font-weight: 800; font-size: clamp(29px, 7vw, 58px); line-height:0.5; margin: 0 0 20px; color: var(--dark)">
       استقدام أسهل…<br>
-      <span style="color: var(--gold)">وراحة أكثر لبيتك</span>
+      <p style="color: var(--gold); ">وراحة أكثر لبيتك</p>
     </h1>
     <p style="font-size: 17px; line-height: 2; color: var(--muted); margin: 0 0 36px; max-width: 520px">
       حلول منظمة لاستقدام العمالة المنزلية بخطوات واضحة، متابعة مستمرة، وتجربة أكثر راحة — من أول تواصل حتى وصول العاملة إلى منزلك.
     </p>
-    <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center">
+    <div class="hero-cta">
       <a href="#contact" class="btn-gold">ابدأ طلبك اليوم</a>
       <a href="#countries" class="btn-outline">تصفح الدول والأسعار</a>
     </div>
-    <div style="display: flex; gap: 40px; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--line-2); flex-wrap: wrap">
-      <div>
-        <div style="font-family: var(--font-head); font-weight: 800; font-size: 28px; color: var(--gold)">+٦</div>
-        <div style="font-size: 13.5px; color: var(--muted)">دول متاحة للاستقدام</div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">+٦</div>
+        <div class="hero-stat-label">دول متاحة للاستقدام</div>
       </div>
-      <div>
-        <div style="font-family: var(--font-head); font-weight: 800; font-size: 28px; color: var(--gold)">خطوات</div>
-        <div style="font-size: 13.5px; color: var(--muted)">واضحة ومنظمة</div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">٥</div>
+        <div class="hero-stat-label">خطوات واضحة ومنظمة</div>
       </div>
-      <div>
-        <div style="font-family: var(--font-head); font-weight: 800; font-size: 28px; color: var(--gold)">متابعة</div>
-        <div style="font-size: 13.5px; color: var(--muted)">مستمرة حتى الوصول</div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">١٠٠٪</div>
+        <div class="hero-stat-label">متابعة حتى الوصول</div>
       </div>
     </div>
   </div>
   <div class="framed" style="animation: fadeUp 0.7s ease 0.15s both">
     <div class="hero-slider" data-slider>
-      <div class="slide active"><img src="images/hero-living-room.jpeg" alt="راحة عائلتك في بيتك"></div>
-      <div class="slide"><img src="images/service-home.jpeg" alt="استقدام أسهل وراحة أكثر لبيتك" loading="lazy"></div>
-      <div class="slide"><img src="images/gallery-3.jpeg" alt="تجربة أكثر مهنية واطمئناناً" loading="lazy"></div>
-      <div class="slide"><img src="images/gallery-2.jpeg" alt="جاهز تبدأ بطريقة أسهل؟ تواصل معنا اليوم" loading="lazy"></div>
+      <div class="slide active"><img src="images/promo-childcare.jpeg" alt="استمتعي مع أطفالك وشغل البيت علينا"></div>
+      <div class="slide"><img src="images/promo-elderly.jpeg" alt="رعاية كبار السن — عناية واهتمام على مدار الساعة" loading="lazy"></div>
+      <div class="slide"><img src="images/promo-summer.jpeg" alt="عرض الصيف — عاملات منزلية بأسعار تنافسية" loading="lazy"></div>
       <button class="slider-arrow prev" aria-label="الشريحة السابقة">‹</button>
       <button class="slider-arrow next" aria-label="الشريحة التالية">›</button>
       <div class="slider-dots"></div>
-      <div style="position: absolute; bottom: 52px; right: 28px; z-index: 4; background: rgba(255,253,248,0.95); backdrop-filter: blur(8px); border-radius: 16px; padding: 14px 22px; display: flex; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12)">
-        <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--gold-pale); border: 1px solid var(--gold-border); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 18px">✓</div>
-        <div>
-          <div style="font-weight: 700; font-size: 14px; color: var(--dark)">نحن هنا لخدمتكم</div>
-          <div style="font-size: 12px; color: var(--muted)">استشارة أولية مجانية</div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -161,22 +156,30 @@
     </div>
     <div class="grid-4" style="gap: 24px">
       <div class="card card-lift">
-        <div class="card-icon"><span class="icon-diamond"></span></div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M6 16v-6a6 6 0 0 1 12 0v6"/><path d="M12 10V4M12 2v2M9 6v2M15 6v2"/></svg>
+        </div>
         <h3>عاملة منزلية</h3>
         <p>استقدام عاملات منزليات مدرّبات على أعمال المنزل والترتيب والنظافة.</p>
       </div>
       <div class="card card-lift">
-        <div class="card-icon"><span class="icon-circle"></span></div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2"/><path d="M12 2v8M4.93 19.07l5-5M19.07 19.07l-5-5"/></svg>
+        </div>
         <h3>سائق خاص</h3>
         <p>سائقون بخبرة قيادة موثوقة لتنقلات الأسرة اليومية بأمان والتزام.</p>
       </div>
       <div class="card card-lift">
-        <div class="card-icon"><span class="icon-square"></span></div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10a6 6 0 0 0-12 0v8h12v-8z"/><path d="M12 2v2M5 18h14M8 18v2h8v-2"/></svg>
+        </div>
         <h3>طباخ / طباخة</h3>
         <p>مهارات طبخ متنوعة تناسب ذوق العائلة ومناسباتها.</p>
       </div>
       <div class="card card-lift">
-        <div class="card-icon"><span class="icon-dots"></span></div>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
         <h3>رعاية كبار السن</h3>
         <p>عاملات بخبرة في الرعاية المنزلية والاهتمام بكبار السن والمرضى.</p>
       </div>
@@ -242,7 +245,7 @@
 <section id="steps" class="section" style="background: var(--dark)">
   <div class="container split split-1-12">
     <div class="framed frame-flip split-media-last" style="--frame-color: rgba(194,161,77,0.4)">
-      <img src="images/followup.jpeg" alt="متابعة منظمة للطلب" style="height: 440px; object-position: 0% 100%" loading="lazy">
+      <img src="images/followup.jpeg" alt="متابعة منظمة للطلب" style="height: 440px; object-fit: cover;" loading="lazy">
     </div>
     <div>
       <div class="kicker" style="color: var(--gold-light); font-weight: 700; font-size: 14px; margin-bottom: 12px">خطوات الاستقدام</div>
@@ -301,30 +304,244 @@
 </section>
 
 <!-- ===== آراء العملاء ===== -->
-<section class="section band">
+<section class="section band testimonials-section">
   <div class="container">
     <div class="section-head">
       <div class="kicker">آراء العملاء</div>
       <h2 style="margin: 0">الثقة تبدأ من التفاصيل</h2>
     </div>
-    <div class="grid-3">
-      <div class="card" style="padding: 32px 28px">
-        <div style="color: var(--gold-light); font-size: 18px; letter-spacing: 3px; margin-bottom: 16px">★★★★★</div>
-        <p style="font-size: 15px; line-height: 2; color: var(--text-2); margin: 0 0 20px">«تعامل راقٍ ومتابعة مستمرة من أول يوم. وصلت العاملة في الوقت المحدد والإجراءات كانت واضحة تماماً.»</p>
-        <div style="font-weight: 700; font-size: 14px; color: var(--dark)">أبو عبدالله</div>
-        <div style="font-size: 12.5px; color: var(--muted-2)">الرياض</div>
+  </div>
+  <div class="testimonials-marquee">
+    <div class="testimonials-track">
+      <!-- المجموعة الأولى -->
+      <div class="testimonials-set">
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">تعامل راقٍ ومتابعة مستمرة من أول يوم. وصلت العاملة في الوقت المحدد والإجراءات كانت واضحة تماماً.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">أ</div>
+            <div>
+              <div class="testimonial-name">أبو عبدالله</div>
+              <div class="testimonial-city">الرياض</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">ساعدوني في اختيار الدولة المناسبة لاحتياج البيت، وكانوا يردون على استفساراتي في كل مرحلة.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">أ</div>
+            <div>
+              <div class="testimonial-name">أم فيصل</div>
+              <div class="testimonial-city">جدة</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">أفضل ما في التجربة الوضوح — سعر معروف من البداية وتحديثات مستمرة عن حالة الطلب.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">أ</div>
+            <div>
+              <div class="testimonial-name">أبو سلطان</div>
+              <div class="testimonial-city">الدمام</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">خدمة احترافية من أول اتصال وحتى وصول العاملة. فريق متعاون ويرد بسرعة على كل الاستفسارات.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">م</div>
+            <div>
+              <div class="testimonial-name">أم محمد</div>
+              <div class="testimonial-city">الرياض</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">استقدمت عاملة من الفلبين والتجربة كانت ممتازة. الإجراءات انتهت في الوقت المتوقع بدون أي مفاجآت.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">خ</div>
+            <div>
+              <div class="testimonial-name">خالد العتيبي</div>
+              <div class="testimonial-city">الخبر</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card" style="padding: 32px 28px">
-        <div style="color: var(--gold-light); font-size: 18px; letter-spacing: 3px; margin-bottom: 16px">★★★★★</div>
-        <p style="font-size: 15px; line-height: 2; color: var(--text-2); margin: 0 0 20px">«ساعدوني في اختيار الدولة المناسبة لاحتياج البيت، وكانوا يردون على استفساراتي في كل مرحلة.»</p>
-        <div style="font-weight: 700; font-size: 14px; color: var(--dark)">أم فيصل</div>
-        <div style="font-size: 12.5px; color: var(--muted-2)">جدة</div>
+      <!-- المجموعة الثانية (نسخة للحلقة اللانهائية) -->
+      <div class="testimonials-set" aria-hidden="true">
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">تعامل راقٍ ومتابعة مستمرة من أول يوم. وصلت العاملة في الوقت المحدد والإجراءات كانت واضحة تماماً.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">أ</div>
+            <div>
+              <div class="testimonial-name">أبو عبدالله</div>
+              <div class="testimonial-city">الرياض</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">ساعدوني في اختيار الدولة المناسبة لاحتياج البيت، وكانوا يردون على استفساراتي في كل مرحلة.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">أ</div>
+            <div>
+              <div class="testimonial-name">أم فيصل</div>
+              <div class="testimonial-city">جدة</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">أفضل ما في التجربة الوضوح — سعر معروف من البداية وتحديثات مستمرة عن حالة الطلب.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">أ</div>
+            <div>
+              <div class="testimonial-name">أبو سلطان</div>
+              <div class="testimonial-city">الدمام</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">خدمة احترافية من أول اتصال وحتى وصول العاملة. فريق متعاون ويرد بسرعة على كل الاستفسارات.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">م</div>
+            <div>
+              <div class="testimonial-name">أم محمد</div>
+              <div class="testimonial-city">الرياض</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">استقدمت عاملة من الفلبين والتجربة كانت ممتازة. الإجراءات انتهت في الوقت المتوقع بدون أي مفاجآت.</p>
+          <div class="testimonial-person">
+            <div class="testimonial-avatar">خ</div>
+            <div>
+              <div class="testimonial-name">خالد العتيبي</div>
+              <div class="testimonial-city">الخبر</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card" style="padding: 32px 28px">
-        <div style="color: var(--gold-light); font-size: 18px; letter-spacing: 3px; margin-bottom: 16px">★★★★★</div>
-        <p style="font-size: 15px; line-height: 2; color: var(--text-2); margin: 0 0 20px">«أفضل ما في التجربة الوضوح — سعر معروف من البداية وتحديثات مستمرة عن حالة الطلب.»</p>
-        <div style="font-weight: 700; font-size: 14px; color: var(--dark)">أبو سلطان</div>
-        <div style="font-size: 12.5px; color: var(--muted-2)">الدمام</div>
+    </div>
+  </div>
+  <!-- سلايدر للجوال (يظهر بدل الماركي على الشاشات الصغيرة) -->
+  <div class="testimonials-slider" data-slider>
+    <div class="slide active">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">تعامل راقٍ ومتابعة مستمرة من أول يوم. وصلت العاملة في الوقت المحدد والإجراءات كانت واضحة تماماً.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">أ</div>
+          <div>
+            <div class="testimonial-name">أبو عبدالله</div>
+            <div class="testimonial-city">الرياض</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">ساعدوني في اختيار الدولة المناسبة لاحتياج البيت، وكانوا يردون على استفساراتي في كل مرحلة.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">أ</div>
+          <div>
+            <div class="testimonial-name">أم فيصل</div>
+            <div class="testimonial-city">جدة</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">أفضل ما في التجربة الوضوح — سعر معروف من البداية وتحديثات مستمرة عن حالة الطلب.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">أ</div>
+          <div>
+            <div class="testimonial-name">أبو سلطان</div>
+            <div class="testimonial-city">الدمام</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">خدمة احترافية من أول اتصال وحتى وصول العاملة. فريق متعاون ويرد بسرعة على كل الاستفسارات.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">م</div>
+          <div>
+            <div class="testimonial-name">أم محمد</div>
+            <div class="testimonial-city">الرياض</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">استقدمت عاملة من الفلبين والتجربة كانت ممتازة. الإجراءات انتهت في الوقت المتوقع بدون أي مفاجآت.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">خ</div>
+          <div>
+            <div class="testimonial-name">خالد العتيبي</div>
+            <div class="testimonial-city">الخبر</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="slider-arrow prev" aria-label="السابق">‹</button>
+    <button class="slider-arrow next" aria-label="التالي">›</button>
+    <div class="slider-dots"></div>
+  </div>
+</section>
+
+<!-- ===== شركاؤنا ===== -->
+<section id="partners" class="section partners-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">شركاء النجاح</div>
+      <h2>جهات رسمية نعتمد لديها</h2>
+      <p>نعمل ضمن منظومة رسمية موثوقة تحفظ حقوقك في كل خطوة من رحلة الاستقدام.</p>
+    </div>
+    <div class="partners-marquee">
+      <div class="partners-track">
+        <div class="partners-set">
+          <div class="partner">
+            <img src="images/partners/m.svg" alt="منصة مساند" class="partner-logo">
+          </div>
+          <div class="partner">
+            <img src="images/partners/mol.svg" alt="وزارة العمل والتنمية الاجتماعية" class="partner-logo">
+          </div>
+          <div class="partner">
+            <img src="images/partners/gov.svg" alt="وزارة الخارجية" class="partner-logo">
+          </div>
+          <div class="partner">
+            <img src="images/partners/A.svg" alt="أبشر" class="partner-logo">
+          </div>
+        </div>
+        <div class="partners-set" aria-hidden="true">
+          <div class="partner">
+            <img src="images/partners/m.svg" alt="" class="partner-logo">
+          </div>
+          <div class="partner">
+            <img src="images/partners/mol.svg" alt="" class="partner-logo">
+          </div>
+          <div class="partner">
+            <img src="images/partners/gov.svg" alt="" class="partner-logo">
+          </div>
+          <div class="partner">
+            <img src="images/partners/A.svg" alt="" class="partner-logo">
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -333,14 +550,14 @@
 <!-- ===== تواصل / اطلب ===== -->
 <section id="contact" class="section container split split-1-11" style="align-items: stretch">
   <div style="position: relative; border-radius: 24px; overflow: hidden; min-height: 480px">
-    <img src="images/support.jpeg" alt="الدعم لا يتوقف بعد تقديم الطلب" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 0% 60%; transform: scale(1.35); transform-origin: left center" loading="lazy">
+    <img src="images/support.jpeg" alt="الدعم لا يتوقف بعد تقديم الطلب" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: 0% 20%" loading="lazy">
     <div style="position: absolute; inset: 0; background: linear-gradient(15deg, rgba(52,55,59,0.85) 0%, rgba(52,55,59,0.15) 60%)"></div>
     <div style="position: absolute; bottom: 0; right: 0; left: 0; padding: 36px">
       <h3 style="font-family: var(--font-head); font-weight: 800; font-size: 26px; color: var(--cream); margin: 0 0 10px">الدعم لا يتوقف بعد تقديم الطلب</h3>
       <p style="color: #D8DADC; font-size: 14.5px; line-height: 1.9; margin: 0">نبقى على تواصل للرد على الاستفسارات وتوضيح الحالة في كل مرحلة من الرحلة.</p>
     </div>
   </div>
-  <div style="background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 44px 40px; box-shadow: 0 18px 50px rgba(59,62,66,0.08)">
+  <div class="form-card">
     <div class="kicker" style="color: var(--gold); font-weight: 700; font-size: 14px; margin-bottom: 10px">جاهز تبدأ بطريقة أسهل؟</div>
     <h2 style="font-family: var(--font-head); font-weight: 800; font-size: 30px; margin: 0 0 8px; color: var(--dark)">ابدأ طلبك الآن</h2>
     <p style="color: var(--muted); font-size: 14.5px; line-height: 1.9; margin: 0 0 30px">عبّئ النموذج وسيصلك ردنا عبر واتساب خلال وقت قصير.</p>
@@ -367,7 +584,7 @@
         </select>
       </div>
       <textarea class="form-input" name="notes" placeholder="ملاحظات إضافية (اختياري)" rows="3"></textarea>
-      <button type="submit" class="btn-gold" style="width: 100%">إرسال الطلب عبر واتساب</button>
+      <button type="submit" class="btn-gold" style="width: 100%">اطلب استقدامك الآن</button>
     </form>
     <div style="display: flex; gap: 28px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line-3); font-size: 14px; flex-wrap: wrap">
       <div><div style="color: var(--muted-2); font-size: 12px; margin-bottom: 3px">اتصال مباشر</div><a href="tel:920015350" style="color: var(--dark); font-weight: 700; text-decoration: none; direction: ltr; display: inline-block">920015350</a></div>
@@ -408,7 +625,7 @@
       </div>
       <div class="footer-badges">
         <div class="footer-badge">معتمدون لدى منصة <b>مساند</b></div>
-        <div class="footer-badge">ترخيص وزارة الموارد البشرية والتنمية الاجتماعية</div>
+        <!-- <div class="footer-badge">ترخيص وزارة الموارد البشرية والتنمية الاجتماعية</div> -->
       </div>
     </div>
     <div class="footer-copy">© ٢٠٢٦ مكتب حمد عبدالله العقيل للاستقدام — جميع الحقوق محفوظة</div>

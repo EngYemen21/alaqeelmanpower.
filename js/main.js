@@ -175,4 +175,39 @@
       window.open(waLinkWithText(msg), '_blank');
     });
   });
+
+  // ===== تحريك شركاء النجاح بالـ JavaScript لتفادي مشاكل الـ CSS والتخزين المؤقت =====
+  window.addEventListener('load', function () {
+    var marquee = document.querySelector('.partners-marquee');
+    var track = document.querySelector('.partners-track');
+    if (marquee && track) {
+      var sets = track.querySelectorAll('.partners-set');
+      if (sets.length > 0) {
+        var setWidth = sets[0].getBoundingClientRect().width;
+        var speed = 0.7; // السرعة (بكسل في كل إطار)
+        var x = 0;
+        var paused = false;
+
+        marquee.addEventListener('mouseenter', function() { paused = true; });
+        marquee.addEventListener('mouseleave', function() { paused = false; });
+        marquee.addEventListener('touchstart', function() { paused = true; }, {passive: true});
+        marquee.addEventListener('touchend', function() { paused = false; }, {passive: true});
+
+        function animate() {
+          if (!paused) {
+            x -= speed;
+            if (Math.abs(x) >= setWidth) {
+              x = 0;
+            }
+            track.style.transform = 'translate3d(' + x + 'px, 0, 0)';
+          }
+          requestAnimationFrame(animate);
+        }
+        
+        // إيقاف الـ CSS animation لتجنب التضارب
+        track.style.animation = 'none';
+        requestAnimationFrame(animate);
+      }
+    }
+  });
 })();

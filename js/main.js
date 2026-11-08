@@ -142,7 +142,7 @@
       var country = btn.getAttribute('data-country');
       var price = btn.getAttribute('data-price');
       var msg = 'السلام عليكم، أرغب بالاستفادة من عرض الصيف لاستقدام عاملة من ' +
-        country + ' بسعر ' + price + ' ريال.';
+        country + ' بسعر ' + price + ' ريال (شامل الضريبة).';
       window.open(waLinkWithText(msg), '_blank');
     });
   });

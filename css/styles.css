@@ -619,6 +619,63 @@ textarea.form-input { resize: vertical; }
   transform: translateY(-4px) scale(1.06);
 }
 
+/* ===== شريط وسائل التواصل الجانبي الثابت ===== */
+.side-social-bar {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 990;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.side-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(30, 35, 40, 0.92);
+  color: #FAFAF7;
+  border-radius: 0 10px 10px 0;
+  text-decoration: none;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.side-social-btn svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+  transition: transform 0.2s ease;
+}
+
+.side-social-btn:hover {
+  transform: translateX(4px);
+  color: #ffffff;
+}
+
+.side-social-btn.x-btn:hover {
+  background: #000000;
+}
+
+.side-social-btn.ig-btn:hover {
+  background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+}
+
+.side-social-btn.snap-btn:hover {
+  background: #FFFC00;
+  color: #000000;
+}
+
+.side-social-btn.tt-btn:hover {
+  background: #010101;
+}
+
 /* ===== سلايدر الهيرو ===== */
 .hero-slider {
   position: relative;
@@ -1355,6 +1412,24 @@ a.contact-card:hover {
   .floating-actions .action-btn:active {
     transform: scale(0.97);
     opacity: 0.92;
+  }
+
+  /* شريط التواصل الجانبي على الجوال */
+  .side-social-bar {
+    gap: 4px;
+  }
+  .side-social-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.12);
+  }
+  .side-social-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  .side-social-btn:active {
+    transform: scale(0.92);
   }
 
   /* مساحة أسفل الصفحة لمنع تغطية المحتوى بالشريط الثابت */

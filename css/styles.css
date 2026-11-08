@@ -540,29 +540,69 @@ textarea.form-input { resize: vertical; }
 .footer-simple-links a { color: var(--dark-text); text-decoration: none; }
 .footer-simple-links a:hover { color: var(--gold-light); }
 
-/* ===== زر واتساب العائم ===== */
+/* ===== أزرار التواصل السريع (واتساب واتصال) ===== */
 @keyframes floatAnimation {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
   100% { transform: translateY(0); }
 }
-.wa-float {
+
+.floating-actions {
   position: fixed;
-  bottom: 20px;
-  right: 75px;
-  z-index: 60;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--wa);
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.floating-actions .action-btn {
+  text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.4);
-  animation: pulseRing 2.4s infinite, floatAnimation 3s infinite ease-in-out;
-  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  position: relative;
 }
-.wa-float svg { width: 30px; height: 30px; fill: #fff; }
+
+.floating-actions .action-btn .btn-text {
+  display: none;
+}
+
+.floating-actions .wa-float {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--wa);
+  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.4);
+  animation: pulseRing 2.4s infinite, floatAnimation 3s infinite ease-in-out;
+}
+
+.floating-actions .wa-float svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+.floating-actions .call-float {
+  width: 58px;
+  height: 58px;
+  background: #1a73e8;
+  border-radius: 50%;
+  box-shadow: 0 10px 24px rgba(26, 115, 232, 0.4);
+  animation: floatAnimation 3s infinite ease-in-out 0.4s;
+}
+
+.floating-actions .call-float svg {
+  width: 25px;
+  height: 25px;
+  fill: #fff;
+}
+
+.floating-actions .action-btn:hover {
+  transform: translateY(-4px) scale(1.06);
+}
 
 /* ===== سلايدر الهيرو ===== */
 .hero-slider {
@@ -1199,8 +1239,6 @@ a.contact-card:hover {
   .timeline-item { grid-template-columns: 48px 1fr; gap: 14px; }
   .timeline-num { min-width: 44px; height: 44px; font-size: 18px; }
   .footer-grid { flex-direction: column; gap: 28px; }
-  .wa-float { width: 52px; height: 52px; bottom: 20px; left: 20px; }
-  .wa-float svg { width: 26px; height: 26px; }
   .slider-arrow { width: 34px; height: 34px; font-size: 15px; }
   .topbar { font-size: 12px; }
   .topbar-badges { gap: 10px; }
@@ -1231,23 +1269,81 @@ a.contact-card:hover {
   .hero-stat-divider { width: 1px; height: 32px; margin: auto 0; }
 }
 
-.call-float{
-  position: fixed;
-  bottom: 25px;
-  right: 15px;
-  width: 56px;
-  height: 56px;
-  background: #1a73e8;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  z-index: 999;
-}
+/* ===== شريط التواصل السفلي للجوال (زرين مستطيلين جنب بعض) ===== */
+@media (max-width: 768px) {
+  .floating-actions {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0;
+    padding: 10px 14px;
+    padding-bottom: max(10px, env(safe-area-inset-bottom, 10px));
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.08);
+    border-top: 1px solid rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    z-index: 1000;
+  }
 
-.call-float svg{
-  width: 24px;
-  height: 24px;
-  fill: #fff;
+  .floating-actions .action-btn {
+    flex: 1;
+    height: 48px;
+    width: auto;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    animation: none;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  }
+
+  .floating-actions .action-btn .btn-text {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    color: #ffffff;
+    white-space: nowrap;
+    letter-spacing: -0.2px;
+  }
+
+  .floating-actions .action-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #ffffff;
+    flex-shrink: 0;
+  }
+
+  .floating-actions .wa-float {
+    background: #25D366;
+    background: linear-gradient(135deg, #25D366 0%, #1eb857 100%);
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.32);
+  }
+
+  .floating-actions .call-float {
+    background: #1a73e8;
+    background: linear-gradient(135deg, #1a73e8 0%, #1558b0 100%);
+    box-shadow: 0 4px 14px rgba(26, 115, 232, 0.32);
+  }
+
+  .floating-actions .action-btn:active {
+    transform: scale(0.97);
+    opacity: 0.92;
+  }
+
+  /* مساحة أسفل الصفحة لمنع تغطية المحتوى بالشريط الثابت */
+  body {
+    padding-bottom: 74px;
+  }
 }

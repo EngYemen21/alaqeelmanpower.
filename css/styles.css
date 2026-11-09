@@ -121,7 +121,7 @@ a { transition: color 0.2s ease; }
   background: linear-gradient(90deg, transparent, rgba(166,124,55,0.2) 30%, rgba(166,124,55,0.2) 70%, transparent);
 }
 .brand { text-decoration: none; display: flex; align-items: center; gap: 12px; }
-.brand-logo { height: 48px; width: auto; display: block; }
+.brand-logo { height: 50px; width: auto; display: block; }
 .brand-name {
   font-family: var(--font-head);
   font-weight: 700;
